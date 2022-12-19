@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import RecipesList from './RecipesList';
 
 function Recipes() {
   return (
-    <div>Recipes</div>
+    <div>
+      {/* @ts-ignore */}
+      <RecipesList />
+    </div>
   )
 }
 
