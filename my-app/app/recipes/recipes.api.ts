@@ -13,7 +13,7 @@ export async function fetchRecipesByName(name: string) {
 };
 
 export async function fetchRecipesById(id: string) {
-  const res = await fetch(`http://${process.env.API_URL}/drink/id?id=${id}`, { cache: "force-cache"});
+  const res = await fetch(`http://${process.env.API_URL}/drink/id?id=${id}`);
   const recipes: Recipe[] = await res.json();
   return recipes;
 };
