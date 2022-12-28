@@ -12,7 +12,7 @@ async function RecipePage({ params: { recipeId } }: RecipeProps) {
   const {Name, Ingredients, Garnish, Preparation} = recipe[0];
 
   return (
-    <div className="bg-yellow-600 rounded-lg shadow-lg p-4 mb-4">
+    <div className="bg-yellow-600 rounded-lg shadow-lg p-4 m-10">
       <div className="text-2xl font-bold mb-2">{Name}</div>
       <div className="text-gray-700 font-serif mb-4">
         A recipe from my personal collection

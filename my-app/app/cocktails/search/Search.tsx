@@ -1,7 +1,9 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import React, {FormEvent, useState} from 'react'
+import { useRouter } from 'next/navigation';
+import React, {FormEvent, useState} from 'react';
+import TableForm from './TableForm';
+import NameForm from './NameForm';
 
 function Search() {
   const [search, setSearch] = useState('');
@@ -54,21 +56,12 @@ function Search() {
         </label>
       </form>
 
-      <form onSubmit={handleSearch}>
-        <input
-          className='pr-5'
-          type='text'
-          value={search}
-          placeholder='cocktail name'
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button
-          type='submit'
-          className='bg-gray-400 text-white py-2 px-4 rounded-lg'
-        >
-          Search
-        </button>
-      </form>
+      {select === 'name' ? (
+        <NameForm handleSearch={handleSearch} search={search} setSearch={setSearch}/>
+        ) : (
+        <TableForm />
+        )
+      }
     </>
   )
 }
