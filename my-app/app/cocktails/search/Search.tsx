@@ -59,7 +59,7 @@ function Search() {
       {select === 'name' ? (
         <NameForm handleSearch={handleSearch} search={search} setSearch={setSearch}/>
         ) : (
-        <TableForm />
+        <TableForm handleSearch={handleSearch} setSearch={setSearch}/>
         )
       }
     </>

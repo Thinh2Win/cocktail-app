@@ -12,7 +12,6 @@ const NameForm:FC<Props> = ({handleSearch, search, setSearch}) => {
           <input
             className='pr-5 pl-2 m-2 bg-gray-800'
             type='text'
-
             value={search}
             placeholder='cocktail name'
             onChange={(e) => setSearch(e.target.value)}
