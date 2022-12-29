@@ -4,18 +4,19 @@ import React, { FC, FormEvent, useState, useEffect } from 'react';
 interface Props {
   handleSearch: (e: FormEvent<HTMLFormElement>) => Promise<void>;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
+  search: string;
 }
 
-const TableForm: FC<Props> = ({handleSearch, setSearch}) => {
+const TableForm: FC<Props> = ({handleSearch, setSearch, search}) => {
   const [list, setList] = useState({});
   const [ingredient, setIngredient] = useState('');
 
   useEffect(() => {
     if(list) {
-      let search = Object.keys(list).join(',');
-      setSearch(search);
+      let term = Object.keys(list).join(',');
+      setSearch(term);
     }
-  }, [list]);
+  }, [list, search]);
 
   const handleEnter = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
