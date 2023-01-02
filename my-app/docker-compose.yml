@@ -4,6 +4,9 @@ services:
     image: thnh2win/cocktails_api:latest
     ports:
       - "3001:3000"
+    depends_on:
+      - cache
+      - db
   cache:
     image: redis:latest
     ports:
