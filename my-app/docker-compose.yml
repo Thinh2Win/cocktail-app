@@ -1,0 +1,17 @@
+version: '3'
+services:
+  s1:
+    image: thnh2win/cocktails_api:latest
+    ports:
+      - "3001:3000"
+  cache:
+    image: redis:latest
+    ports:
+      - "6380:6379"
+  db:
+    image: mongo:latest
+    volumes:
+      - /var/lib/docker/volumes/f9db951a6d1b26fe153c4ee26668ab570b91a8a942d582b105cd1d5219d711de/_data:/data/db
+    ports: 
+      - "27018:27017"
+
