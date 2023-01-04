@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { fetchCocktailsById } from '../cocktails.api';
 
 type RecipeProps = {
@@ -7,10 +7,9 @@ type RecipeProps = {
   }
 }
 
-async function RecipePage({ params: { recipeId } }: RecipeProps) {
+async function RecipePage({ params: { recipeId }}: RecipeProps) {
   let recipe = await fetchCocktailsById(recipeId);
   const {Name, Ingredients, Preparation} = recipe[0];
-
   return (
     <div className="bg-yellow-600 rounded-lg shadow-lg py-4 pl-4 m-10 max-w-lg mx-auto">
       <div className="text-2xl font-bold mb-2">{Name}</div>

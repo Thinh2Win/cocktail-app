@@ -13,6 +13,10 @@ function Search() {
   const handleSearch = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSearch('');
+    if (search.length === 0) {
+      alert('please enter ingredients');
+      return;
+    }
     switch(select) {
       case 'name':
         router.push(`/cocktails/search/name/${search}`);
