@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { fetchCocktailsById } from '../cocktails.api';
 
 type RecipeProps = {
@@ -11,8 +12,11 @@ async function RecipePage({ params: { recipeId }}: RecipeProps) {
   let recipe = await fetchCocktailsById(recipeId);
   const {Name, Ingredients, Preparation} = recipe[0];
   return (
-    <div className="bg-yellow-600 rounded-lg shadow-lg py-4 pl-4 m-10 max-w-lg mx-auto">
-      <div className="text-2xl font-bold mb-2">{Name}</div>
+    <div className="bg-yellow-600 rounded-lg shadow-lg py-4 pl-4 m-10 max-w-lg mx-auto relative">
+      <span className="text-2xl font-bold mb-2">{Name}</span>
+      <Link href={'javascript:history.back()'}>
+          <span className="absolute bg-black text-white pl-1 pr-1 right-2 rounded">⏎ Back</span>
+      </Link>
       <div className="text-gray-700 font-serif mb-4">
         A recipe from my personal collection
       </div>
