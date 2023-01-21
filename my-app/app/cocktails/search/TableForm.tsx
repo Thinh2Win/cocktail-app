@@ -38,6 +38,7 @@ const TableForm: FC<Props> = ({ handleSearch, setSearch, search }) => {
   const handleRemove = async (name: string) => {
     let newList: any = { ...list };
     delete newList[name];
+    window.localStorage.setItem('list', JSON.stringify(newList));
     setList(newList);
   };
 
