@@ -12,10 +12,18 @@ const TableForm: FC<Props> = ({ handleSearch, setSearch, search }) => {
   const [ingredient, setIngredient] = useState("");
 
   useEffect(() => {
-    if (list) {
-      let term = Object.keys(list).join(",");
-      setSearch(term);
-    };
+    let savedList = window.localStorage.getItem('list');
+    if (savedList) {
+      setList(JSON.parse(savedList));
+    }
+  }, [])
+
+  useEffect(() => {
+    if (Object.keys(list).length) {
+      window.localStorage.setItem('list', JSON.stringify(list));
+    }
+    let term = Object.keys(list).join(",");
+    setSearch(term);
   }, [list, search]);
 
   const handleEnter = async (e: FormEvent<HTMLFormElement>) => {
