@@ -45,38 +45,10 @@ function Home() {
             className={styles.card}
           >
             <h2>
-              Give Me a &quot;&quot; <span>-&gt;</span>
+              Search &quot;&quot; <span>-&gt;</span>
             </h2>
             <p>
-              Generates Cocktails With a Similar Name
-            </p>
-          </a>
-
-          <a
-            href='/'
-            className={styles.card}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <h2>
-              Anything with &quot;&quot;? <span>-&gt;</span>
-            </h2>
-            <p>
-              Generates Cocktails With ALL Listed Ingredients
-            </p>
-          </a>
-
-          <a
-            href='/'
-            className={styles.card}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <h2>
-              No &quot;&quot; Please <span>-&gt;</span>
-            </h2>
-            <p>
-              Generates Cocktails excluding ALL Listed Ingredients
+              Search Cocktails by Name or Ingredients
             </p>
           </a>
         </div>
