@@ -14,7 +14,7 @@ function Search() {
     e.preventDefault();
     setSearch('');
     if (search.length === 0) {
-      alert('please enter ingredients');
+      alert('please enter search criteria');
       return;
     }
     switch(select) {
