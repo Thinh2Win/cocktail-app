@@ -30,7 +30,7 @@ function Home() {
 
         <div className={styles.grid}>
             <Link
-              href={'/cocktails/random'}
+              href={`/cocktails/random`}
               className={styles.card}
             >
               <h2>
