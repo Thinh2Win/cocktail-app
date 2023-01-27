@@ -1,21 +1,23 @@
-import React from 'react';
-import Link from 'next/link';
-import { fetchCocktailsById } from '../cocktails.api';
+import React from "react";
+import Link from "next/link";
+import { fetchCocktailsById } from "../cocktails.api";
 
 type RecipeProps = {
   params: {
     recipeId: string;
-  }
-}
+  };
+};
 
-async function RecipePage({ params: { recipeId }}: RecipeProps) {
+async function RecipePage({ params: { recipeId } }: RecipeProps) {
   let recipe = await fetchCocktailsById(recipeId);
-  const {Name, Ingredients, Preparation} = recipe[0];
+  const { name, ingredients, preparation, img } = recipe[0];
   return (
     <div className="bg-yellow-600 rounded-lg shadow-lg py-4 pl-4 m-10 max-w-lg mx-auto relative">
-      <span className="text-2xl font-bold mb-2">{Name}</span>
-      <Link href={'javascript:history.back()'}>
-          <span className="absolute bg-black text-white pl-1 pr-1 right-2 rounded">⏎ Back</span>
+      <span className="text-2xl font-bold mb-2">{name}</span>
+      <Link href={"javascript:history.back()"}>
+        <span className="absolute bg-black text-white pl-1 pr-1 right-2 rounded">
+          ⏎ Back
+        </span>
       </Link>
       <div className="text-gray-700 font-serif mb-4">
         A recipe from my personal collection
@@ -24,20 +26,29 @@ async function RecipePage({ params: { recipeId }}: RecipeProps) {
         <div className="w-1/2">
           <h3 className="text-lg font-bold mb-2">Ingredients:</h3>
           <ul className="list-disc pl-4">
-            {Ingredients.split(',').map((ingredient, idx) => <li key={idx}>{ingredient}</li>)}
+            {ingredients.split(",").map((ingredient, idx) => (
+              <li key={idx}>{ingredient}</li>
+            ))}
           </ul>
           <h3 className="text-lg font-bold my-2">Instructions:</h3>
           <p className="mr-2">
-            {Preparation}
+            {preparation
+              .split(".")
+              .filter((x) => x !== "")
+              .map((steps, idx) => (
+                <li key={idx} className="list-decimal">
+                  {steps}
+                </li>
+              ))}
           </p>
         </div>
 
         <div className="w-1/2 p-2">
-          <img className="h-64 rounded-lg" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"></img>
+          <img className="h-64 rounded-lg" src={img}></img>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default RecipePage
+export default RecipePage;
