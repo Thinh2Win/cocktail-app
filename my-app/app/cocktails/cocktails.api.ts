@@ -1,9 +1,13 @@
 type Recipe = {
   _id: string;
-  Name: string;
-  Ingredients: string;
-  Garnish: string;
-  Preparation: string;
+  name: string;
+  ingredients: string;
+  preparation: string;
+  glass: string;
+  strength: string;
+  description: string;
+  img: string;
+  profile: string;
 };
 
 export async function fetchCocktailsByName(name: string) {
